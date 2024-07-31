@@ -3,16 +3,34 @@
 
 **A simple light-weight battery notifier script written for Hyprland WM users.**
 
-Since Hyprland WM doesn't contains default notification for the battery is `charging, discharing, full` or `a warning message` for your battery's under low, you might be overwhelmed that you can't know your current battery status.
+Since Hyprland WM doesn't have default notifications for when the battery is charging, discharging, full, or under a low battery warning, you might not be aware of your current battery status.
 
-So, I wrote this in logic way ;)
+So, I wrote this script to solve that problem ;)
 
 # How it works
 ## battery_notify.sh
-This scripts works just like other OSs' notifications. The only difference with other notifications scripts is that it <b>won't repeat</b> the status notification. Each time your battery is `charging`, `discharging`, or `fully charged`, the script will only notify for once.
+This script works similarly to like others' battery notification scripts. The only difference is that it <b>won't repeat</b> the status notification. Each time your battery is charging, discharging, or fully charged, the script will only notify you once.
 
 ## battery_warning.sh
-This script is written to notify if the battery is too low that the computer might be shutted down in anytime. 
+This script notifies you if the battery is too low that your computer might shut down at any moment. When the battery capacity drops below **15%**, it will alert you to save your work before an imminent shutdown.
+
 
 # How to use
+## Required Packages
+``` bash
+sudo pacman -Sy --needed mplayer brightnessctl notify-send
+```
+
+Download and make the scripts executable:
+```
+git clone https://github.com/miniMinn24/Battery_Notify.git
+cd Battery_Notify
+chmod +x *.sh
+```
+
+Start as background processes, e.g., in your hyprland.conf:
+```
+exec-once = /PATH/TO/battery_notify.sh &
+exec-once = /PATH/TO/battery_warning.sh &
+```
 
