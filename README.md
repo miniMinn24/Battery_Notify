@@ -16,9 +16,9 @@ This script notifies you if the battery is too low that your computer might shut
 
 
 # How to use
-## Required Packages
+Required Packages
 ``` bash
-sudo pacman -Sy --needed mplayer brightnessctl notify-send
+sudo pacman -Sy --needed mplayer brightnessctl libnotify
 ```
 
 Download and make the scripts executable:
